@@ -102,11 +102,13 @@ class _HomePageState extends State<HomePage> {
                       "Choose Category",
                       style: TextStyle(fontSize: 23),
                     )),
-                Container(
-                  width: 130,
-                  child: Text(
-                    "See all",
-                    textAlign: TextAlign.right,
+                InkWell(
+                  child: Container(
+                    width: 130,
+                    child: Text(
+                      "See all",
+                      textAlign: TextAlign.right,
+                    ),
                   ),
                 )
               ],
@@ -125,8 +127,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Image.network(
                             beachUrl,
-                            width: 50,
-                            height: 50,
+                            width: 20,
+                            height: 20,
                           ),
                           SizedBox(width: 20),
                           Text(
@@ -151,8 +153,8 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Image.network(
                           mountainUrl,
-                          width: 50,
-                          height: 50,
+                          width: 20,
+                          height: 20,
                         ),
                         SizedBox(width: 20),
                         Text(
@@ -164,6 +166,42 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ))
               ],
+            ),
+            ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Stack(
+                    children: <Widget>[
+                      Image.network(
+                        "https://imgs.search.brave.com/sD-Z0uAW7TF6qQAIiHF58laEPnDONHqSg1-WjWFik-c/rs:fit:711:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5P/SWo3MndXOTdhbUVG/Um9saThnZC1nSGFF/OCZwaWQ9QXBp",
+                        fit: BoxFit.cover,
+                      ),
+                      Positioned(
+                        bottom: 10.0,
+                        left: 10.0,
+                        child: Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 35.0,
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 10.0,
+                        right: 10.0,
+                        child: Text(
+                          "Image $index",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
             )
           ],
         ),
